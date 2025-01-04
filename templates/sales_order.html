@@ -1,0 +1,113 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Food Order UI{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}">
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='java/scripts1.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <header class="cashier-header">
+        <h2 id="cashier-name">Cashier: Loading...</h2>
+    </header>
+
+    <section class="categories">
+        <button class="category" data-category="all">All</button>
+        <button class="category" data-category="solo-boodle-flight">Solo Boodle Flight</button>
+        <button class="category" data-category="boodle-flights">Boodle Flights</button>
+        <button class="category" data-category="a-la-carte">A La Carte</button>
+        <button class="category" data-category="single-flights">Single Flights</button>
+        <button class="category" data-category="international-flights">International Flights</button>
+        <button class="category" data-category="uncle">Uncle D's</button>
+        <button class="category" data-category="drink">Drinks</button>
+        <button class="category" data-category="extra">Extras</button>
+    </section>
+
+
+<section class="menu-items-container">
+    <section class="menu-items" id="solo-boodle-flight">
+        <h2>Solo Boodle Flight</h2>
+        <div class="menu-grid" id="menu-grid-solo"></div>
+    </section>
+</section>
+
+<section class="menu-items" id="boodle-flights">
+        <h2>Boodle Flights</h2>
+        <div class="menu-grid" id="menu-grid-boodle"></div>
+    </section>
+
+    <section class="menu-items" id="a-la-carte">
+        <h2>A La Carte</h2>
+        <div class="menu-grid" id="menu-grid-a-la-carte"></div>
+    </section>
+
+<section class="menu-items" id="single-flights">
+    <h2>Single Flights</h2>
+    <div class="menu-grid" id="menu-grid-single-flights"></div>
+</section>
+
+<section class="menu-items" id="international-flights">
+    <h2>International Flights</h2>
+    <div class="menu-grid" id="menu-grid-international-flights"></div>
+</section>
+
+
+<section class="menu-items" id="uncle">
+    <h2>Uncle D's Ice Cream Sandwich</h2>
+    <div class="menu-grid" id="menu-grid-uncle"></div>
+</section>
+
+
+</main>
+
+<aside class="order-summary">
+    <div class="order-details" id="orderDetails">
+         <h2>Order Details</h2>
+    <hr>
+    </div>
+
+    <div class="empty-cart" id="emptyCart">
+        <img src="{{ url_for('static', filename='img/emptybag.png') }}" alt="emptybag">
+        <h3>Cart Empty</h3>
+            <p>The cart is empty.<br>Start adding items from the menu.</p>
+    </div>
+
+    <div class="order-options" id="orderOptions" style="display: none;">
+        <button class="btn-dine-in">Dine In</button>
+        <button class="btn-take-out">Take Out</button>
+    </div>
+    <div class="order-Summary" id="orderSummary"></div>
+    <div class="total-amount-container" id="totalAmountContainer" style="display: none;">
+    <h3>Total Amount: <span id="totalAmount">₱0.00</span></h3>
+    <button id="continueButton">Continue</button>
+</div>
+
+</aside>
+<div id="editpopupContainer" class="edit-popup-container hidden">
+    <div class="edit-popup-content">
+        <h3>Add Request</h3>
+        <textarea id="notesInput" placeholder="Enter Request here:"></textarea>
+        <div class="edit-popup-buttons">
+            <button id="saveNotes">Save</button>
+            <button id="cancelPopup">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="popup-container" id="popup">
+<div class="popup-content">
+    <h2>No open Till</h2>
+        <p>Would you like to open till?</p>
+<div class="popup-buttons">
+    <button class="btn-no" id="btnNo">NO</button>
+    <button class="btn-yes" id="btnYes">YES</button>
+</div>
+</div>
+
+</div>
+{% endblock %}
